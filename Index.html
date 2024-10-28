@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dom :3</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #ed3737;
+        }
+
+        .contenedores {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin: 50px;
+        }
+
+        .contenedor {
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            background-color: #ea7d00;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contenedor:hover {
+            transform: scale(1.05);
+        }
+
+        .info {
+            display: none;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #ffffff;
+        }
+
+        .boton {
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #0a0a0a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #0055b0;
+        }
+
+        .boton-cancelar {
+            background-color: #ff0019;
+        }
+
+        .boton-cancelar:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedores">
+        <div class="contenedor" id="contenedor1">
+            <h3>DOM 1</h3>
+            <button class="boton" onclick="toggleInfo(1)">Informacion 1</button>
+            <div class="info" id="info1">
+                <p>getElementById: Devuelve el elemento con el ID especificado.</p>
+                <button class="boton boton-cancelar" onclick="toggleInfo(1)">Ocultar</button>
+                <p id="resultado1"></p>
+            </div>
+        </div>
+
+        <div class="contenedor" id="contenedor2">
+            <h3>DOM 2</h3>
+            <button class="boton" onclick="toggleInfo(2)">Informacion 2</button>
+            <div class="info" id="info2">
+                <p>getElementsByClassName: Devuelve una colección de elementos que tienen la clase especificada.</p>
+                <button class="boton boton-cancelar" onclick="toggleInfo(2)">Ocultar</button>
+                <p id="resultado2"></p>
+            </div>
+        </div>
+
+        <div class="contenedor" id="contenedor3">
+            <h3>DOM 3</h3>
+            <button class="boton" onclick="toggleInfo(3)">Informacion 3</button>
+            <div class="info" id="info3">
+                <p>getElementsByTagName: Devuelve una colección de elementos con el nombre de etiqueta especificado.</p>
+                <button class="boton boton-cancelar" onclick="toggleInfo(3)">Ocultar</button>
+                <p id="resultado3"></p>
+            </div>
+        </div>
+
+        <div class="contenedor" id="contenedor4">
+            <h3>DOM 4</h3>
+            <button class="boton" onclick="toggleInfo(4)">Informacion 4</button>
+            <div class="info" id="info4">
+                <p>querySelector: Devuelve el primer elemento que coincide con el selector CSS especificado.</p>
+                <button class="boton boton-cancelar" onclick="toggleInfo(4)">Ocultar</button>
+                <p id="resultado4"></p>
+            </div>
+        </div>
+
+        <div class="contenedor" id="contenedor5">
+            <h3>DOM 5</h3>
+            <button class="boton" onclick="toggleInfo(5)">Informacion 5</button>
+            <div class="info" id="info5">
+                <p>querySelectorAll: Devuelve todos los elementos que coinciden con el selector CSS especificado.</p>
+                <button class="boton boton-cancelar" onclick="toggleInfo(5)">Ocultar</button>
+                <p id="resultado5"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const contenedor1 = document.getElementById('contenedor1');
+        console.log('Método getElementById:', contenedor1);
+
+        const contenedores = document.getElementsByClassName('contenedor');
+        console.log('Método getElementsByClassName:', contenedores);
+
+        const divs = document.getElementsByTagName('div');
+        console.log('Método getElementsByTagName:', divs);
+
+        const primerContenedor = document.querySelector('.contenedor');
+        console.log('Método querySelector:', primerContenedor);
+
+
+        const todosLosContenedores = document.querySelectorAll('.contenedor');
+        console.log('Método querySelectorAll:', todosLosContenedores);
+
+        function toggleInfo(num) {
+            const infoDiv = document.getElementById('info' + num);
+            if (infoDiv.style.display === 'block') {
+                infoDiv.style.display = 'none';
+            } else {
+                infoDiv.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
